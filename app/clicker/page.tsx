@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useCallback, ReactNode, useMemo, useEffect } from 'react';
-import { retrieveLaunchParams } from '@telegram-apps/sdk';
+import { retrieveLaunchParams } from '@telegram-apps/sdk-react';
 import Game from '@/components/Game';
 import Mine from '@/components/Mine';
 import Friends from '@/components/Friends';
@@ -16,7 +16,7 @@ import { PointSynchronizer } from '@/components/PointSynchronizer';
 function ClickerPage() {
     const { initData: data } = retrieveLaunchParams();
     console.log(data, "======hi");
-
+    
     const [currentView, setCurrentViewState] = useState<string>('loading');
     const [isInitialized, setIsInitialized] = useState(false);
 
