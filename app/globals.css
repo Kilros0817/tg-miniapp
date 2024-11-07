@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap");
+html,
+body {
+  background-color: #000000;
+}
+.zcool-kuaile-regular {
+  font-family: "ZCOOL KuaiLe", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.lilita-one-regular {
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.poppins-thin {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.big-outline {
+  -webkit-text-stroke: 1px black;
+}
+.small-outline {
+  -webkit-text-stroke: 0.5px black;
+}
+* {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+.progress-gradient {
+  background: linear-gradient(to right, #d9430c, #33b4f2, #f4b221);
+}
+
+.top-glow {
+  /* box-shadow: 0 -26px 20px #33b4f2; */
+}
+
+/* Define the keyframes for the blinking animation */
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Apply the animation to the dot class */
+.dot {
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  animation: blink 1s infinite;
+}
+
+.circle-outer {
+  background: linear-gradient(to bottom, #230000, #da2125);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90vw;
+  height: 90vw;
+  max-width: 360px;
+  max-height: 360px;
+  aspect-ratio: 1;
+}
+
+.circle-inner {
+  background: radial-gradient(circle, #000000, #000000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  aspect-ratio: 1;
+}
+
+@keyframes float {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-160px);
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+}
+
+.pulse-animation {
+  animation: pulse 3s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+@keyframes neonowl {
+  from {
+    text-shadow: 0 0 10px #303335, 0 0 40px #303335, 0 0 100px #303335;
+  }
+  to {
+    text-shadow: 0 0 5px #303335, 0 0 20px #303335, 0 0 60px #303335;
+  }
+}
+.neon {
+  animation: neonowl 2s alternate-reverse infinite;
+  font-size: 40px;
+  background: -webkit-linear-gradient(#303335, #1b1b1b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@keyframes neonAnim {
+  from {
+    text-shadow: 0 0 10px #b01b1e, 0 0 40px #b01b1e, 0 0 100px #b01b1e;
+  }
+  to {
+    text-shadow: 0 0 5px #b01b1e, 0 0 20px #b01b1e, 0 0 60px #b01b1e;
+  }
+}
+.Dark_owl {
+  animation: neonAnim 2s alternate-reverse infinite;
+  font-size: 40px;
+  background: -webkit-linear-gradient(#171a1d, #230000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.neon_text {
+  animation: 2s alternate-reverse infinite;
+  font-size: 40px;
+  background: -webkit-linear-gradient(#d72024, #9c1215);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.animate-spin {
+  animation: spin 10s linear infinite;
+}
