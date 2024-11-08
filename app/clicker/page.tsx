@@ -81,11 +81,10 @@ function ClickerPage() {
     const lp = useLaunchParams();
     useEffect(() => {
         if (lp) {
-            console.log(lp)
-            // setUserTelegramInitData(lp.initDataRaw || '');
-            // setUserTelegramName(`${lp.initData?.user?.firstName} ${lp.initData?.user?.lastName}`.trim())
-            setUserTelegramInitData("query_id=AAHDGPNVAgAAAMMY81UN13rr&user=%7B%22id%22%3A5736962243%2C%22first_name%22%3A%22KILROS%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22Kilros817%22%2C%22language_code%22%3A%22en%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1731068173&hash=dece650fe39cfb971267fefc2e7cc062e10f1d522a6df2d8060f4ff5c3a5bcfa")
-            setUserTelegramName("Kilros")
+            setUserTelegramInitData(lp.initDataRaw || '');
+            setUserTelegramName(`${lp.initData?.user?.firstName} ${lp.initData?.user?.lastName}`.trim())
+            // setUserTelegramInitData("query_id=AAHDGPNVAgAAAMMY81UN13rr&user=%7B%22id%22%3A5736962243%2C%22first_name%22%3A%22KILROS%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22Kilros817%22%2C%22language_code%22%3A%22en%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1731068173&hash=dece650fe39cfb971267fefc2e7cc062e10f1d522a6df2d8060f4ff5c3a5bcfa")
+            // setUserTelegramName("Kilros")
         }
     }, [lp])
 
