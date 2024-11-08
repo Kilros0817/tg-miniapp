@@ -45,6 +45,8 @@ export interface GameState extends InitialGameState {
   setMineLevelIndex: (mineLevelIndex: number) => void
   upgradeMineLevelIndex: () => void
   setTonWalletAddress: (address: string | null) => void;
+  setUserTelegramInitData: (rawData: string) => void;
+  setUserTelegramName: (name: string) => void,
 }
 
 export const calculateLevelIndex = (points: number): number => {
@@ -195,6 +197,8 @@ export const createGameStore = (initialState: InitialGameState) => create<GameSt
     return state;
   }),
   setTonWalletAddress: (address) => set({ tonWalletAddress: address }),
+  setUserTelegramInitData: (rawData) => set({ userTelegramInitData: rawData }),
+  setUserTelegramName: (name) => set({ userTelegramName: name }),
 }));
 
 export const useGameStore = createGameStore({

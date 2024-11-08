@@ -13,16 +13,19 @@ import { AutoIncrement } from '@/components/AutoIncrement';
 import { PointSynchronizer } from '@/components/PointSynchronizer';
 
 import {
-    initData,
-    miniApp,
     useLaunchParams,
-    useSignal,
-  } from '@telegram-apps/sdk-react';
-  
+} from '@telegram-apps/sdk-react';
+
 import { useTelegramMock } from '@/hooks/useTelegramMock';
 import { useDidMount } from '@/hooks/useDidMount';
+import { useGameStore } from '@/utils/game-mechanics';
 
 function ClickerPage() {
+
+    const {
+        setUserTelegramName,
+        setUserTelegramInitData
+    } = useGameStore();
 
     const [currentView, setCurrentViewState] = useState<string>('loading');
     const [isInitialized, setIsInitialized] = useState(false);
@@ -79,16 +82,9 @@ function ClickerPage() {
     }
 
     const lp = useLaunchParams();
-    console.log(lp, "lp");
 
-    // Initialize the library.
-    // useClientOnce(() => {
-    //     init(debug);
-    // });
-
-    const initDataUser = useSignal(initData.user);
-    console.log(initDataUser, "============")
-
+    setUserTelegramInitData(lp.initDataRaw || '');
+    setUserTelegramName((lp.initData?.user?.firstName + ' ' + lp.initData?.user?.lastName).trim() || '');
 
     return (
         <div className="bg-black min-h-screen text-white">

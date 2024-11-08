@@ -265,10 +265,6 @@ export default function Airdrop() {
                                         {/* Right-side TON value */}
                                         <p className="text-[#000000] font-bold text-1xl relative z-10">0.5 TON</p>
                                     </button>
-
-
-
-
                                 </div>
                             </div>
                         </div>
