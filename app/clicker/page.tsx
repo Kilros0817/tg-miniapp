@@ -85,8 +85,7 @@ function ClickerPage() {
     useEffect(() => {
         if (lp) {
             setUserTelegramInitData(lp.initDataRaw || '');
-            console.log(`${lp.initData?.user?.firstName} ${lp.initData?.user?.lastName}`.trim())
-            // setUserTelegramName((lp.initData?.user?.firstName + ' ' + lp.initData?.user?.lastName || '').trim());
+            setUserTelegramName(`${lp.initData?.user?.firstName} ${lp.initData?.user?.lastName}`.trim())
         }
     }, [lp])
 
