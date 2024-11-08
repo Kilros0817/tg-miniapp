@@ -83,8 +83,11 @@ function ClickerPage() {
 
     const lp = useLaunchParams();
 
-    setUserTelegramInitData(lp.initDataRaw || '');
-    setUserTelegramName((lp.initData?.user?.firstName + ' ' + lp.initData?.user?.lastName || '').trim());
+    console.log(lp, "=====lp===")
+    console.log(lp.initDataRaw, "=====initDataRaw===")
+    console.log(lp.initData, "=====initData===")
+    // setUserTelegramInitData(lp.initDataRaw || '');
+    // setUserTelegramName((lp.initData?.user?.firstName + ' ' + lp.initData?.user?.lastName || '').trim());
 
     return (
         <div className="bg-black min-h-screen text-white">
