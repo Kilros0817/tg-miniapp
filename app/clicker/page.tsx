@@ -70,9 +70,6 @@ function ClickerPage() {
         }
     }, [currentView, isInitialized]);
 
-    console.log('ClickerPage rendering. Current state:', { currentView, isInitialized });
-
-
     const isDev = process.env.NODE_ENV === 'development';
 
     // Mock Telegram environment in development mode if needed.
@@ -84,6 +81,7 @@ function ClickerPage() {
     const lp = useLaunchParams();
     useEffect(() => {
         if (lp) {
+            console.log(lp)
             setUserTelegramInitData(lp.initDataRaw || '');
             setUserTelegramName(`${lp.initData?.user?.firstName} ${lp.initData?.user?.lastName}`.trim())
             // setUserTelegramInitData("query_id=AAHDGPNVAgAAAMMY81UKNiSt&user=%7B%22id%22%3A5736962243%2C%22first_name%22%3A%22KILROS%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22Kilros817%22%2C%22language_code%22%3A%22en%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1731064494&hash=f41bc067f25ce2e30c1f05ba5c084945026b6f82fd1569b7da96e0a3d3751807")
