@@ -1,7 +1,6 @@
 'use client'
 
-import React, { useState, useCallback, ReactNode, useMemo, useEffect } from 'react';
-import { useSignal, initData } from '@telegram-apps/sdk-react';
+import React, { useState, useCallback, ReactNode, useEffect } from 'react';
 import Game from '@/components/Game';
 import Mine from '@/components/Mine';
 import Friends from '@/components/Friends';
@@ -13,11 +12,18 @@ import Boost from '@/components/Boost';
 import { AutoIncrement } from '@/components/AutoIncrement';
 import { PointSynchronizer } from '@/components/PointSynchronizer';
 
+import {
+    initData,
+    miniApp,
+    useLaunchParams,
+    useSignal,
+  } from '@telegram-apps/sdk-react';
+  
+import { useTelegramMock } from '@/hooks/useTelegramMock';
+import { useDidMount } from '@/hooks/useDidMount';
+
 function ClickerPage() {
-    
-    const initDataRaw = useSignal(initData.raw);
-    console.log(initDataRaw);
-    
+
     const [currentView, setCurrentViewState] = useState<string>('loading');
     const [isInitialized, setIsInitialized] = useState(false);
 
@@ -62,6 +68,27 @@ function ClickerPage() {
     }, [currentView, isInitialized]);
 
     console.log('ClickerPage rendering. Current state:', { currentView, isInitialized });
+
+
+    const isDev = process.env.NODE_ENV === 'development';
+
+    // Mock Telegram environment in development mode if needed.
+    if (isDev) {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        useTelegramMock();
+    }
+
+    const lp = useLaunchParams();
+    console.log(lp, "lp");
+
+    // Initialize the library.
+    // useClientOnce(() => {
+    //     init(debug);
+    // });
+
+    const initDataUser = useSignal(initData.user);
+    console.log(initDataUser, "============")
+
 
     return (
         <div className="bg-black min-h-screen text-white">
@@ -115,7 +142,9 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
 }
 
 export default function ClickerPageWithErrorBoundary() {
-    return (
+    const didMount = useDidMount();
+
+    return didMount && (
         <ErrorBoundary>
             <ClickerPage />
         </ErrorBoundary>
