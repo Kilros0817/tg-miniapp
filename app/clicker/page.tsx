@@ -82,10 +82,11 @@ function ClickerPage() {
     }
 
     const lp = useLaunchParams();
-
-    console.log(lp, "=====lp===")
-    console.log(lp.initDataRaw, "=====initDataRaw===")
-    console.log(lp.initData, "=====initData===")
+    useEffect(() => {
+        console.log(lp, "=====lp===")
+        console.log(lp.initDataRaw, "=====initDataRaw===")
+        console.log(lp.initData, "=====initData===")
+    }, [lp])
     // setUserTelegramInitData(lp.initDataRaw || '');
     // setUserTelegramName((lp.initData?.user?.firstName + ' ' + lp.initData?.user?.lastName || '').trim());
 
