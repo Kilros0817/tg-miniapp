@@ -29,6 +29,7 @@ export async function POST(req: Request) {
     }
 
     try {
+        console.log(telegramId, walletAddress)
         const updatedUser = await prisma.user.update({
             where: { telegramId },
             data: { tonWalletAddress: walletAddress },

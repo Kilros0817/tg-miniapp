@@ -84,11 +84,10 @@ function ClickerPage() {
     const lp = useLaunchParams();
     useEffect(() => {
         if (lp) {
-            console.log(lp.initDataRaw)
             // setUserTelegramInitData(lp.initDataRaw || '');
             // setUserTelegramName(`${lp.initData?.user?.firstName} ${lp.initData?.user?.lastName}`.trim())
-            // setUserTelegramInitData("Kilros")
-            // setUserTelegramName("")
+            setUserTelegramInitData("query_id=AAHDGPNVAgAAAMMY81Vv7mX5&user=%7B%22id%22%3A5736962243%2C%22first_name%22%3A%22KILROS%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22Kilros817%22%2C%22language_code%22%3A%22en%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1731042972&hash=86f04510a6f972abf30757c6f9bebd8571bf14ff9c60fe09ef3bb1e5576324e4")
+            setUserTelegramName("KILROS")
         }
     }, [lp])
 

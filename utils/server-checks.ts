@@ -39,7 +39,6 @@ export function validateTelegramWebAppData(telegramInitData: string): Validation
 
     const initData = new URLSearchParams(telegramInitData);
     const hash = initData.get('hash');
-    
     if (!hash) {
       return { message: 'Hash is missing from initData', validatedData: null, user: {} };
     }
