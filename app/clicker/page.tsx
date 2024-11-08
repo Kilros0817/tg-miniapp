@@ -84,7 +84,7 @@ function ClickerPage() {
     const lp = useLaunchParams();
 
     setUserTelegramInitData(lp.initDataRaw || '');
-    setUserTelegramName((lp.initData?.user?.firstName + ' ' + lp.initData?.user?.lastName).trim() || '');
+    setUserTelegramName((lp.initData?.user?.firstName + ' ' + lp.initData?.user?.lastName || '').trim());
 
     return (
         <div className="bg-black min-h-screen text-white">
