@@ -84,8 +84,11 @@ function ClickerPage() {
     const lp = useLaunchParams();
     useEffect(() => {
         if (lp) {
-            setUserTelegramInitData(lp.initDataRaw || '');
-            setUserTelegramName(`${lp.initData?.user?.firstName} ${lp.initData?.user?.lastName}`.trim())
+            console.log(lp.initDataRaw)
+            // setUserTelegramInitData(lp.initDataRaw || '');
+            // setUserTelegramName(`${lp.initData?.user?.firstName} ${lp.initData?.user?.lastName}`.trim())
+            // setUserTelegramInitData("Kilros")
+            // setUserTelegramName("")
         }
     }, [lp])
 
