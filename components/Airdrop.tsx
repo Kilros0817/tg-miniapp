@@ -57,6 +57,10 @@ export default function Airdrop() {
     useEffect(() => {
         const unsubscribe = tonConnectUI.onStatusChange(async (wallet) => {
             if (wallet && isConnecting) {
+                console.log(wallet, "==========wallet=========")
+                console.log(wallet.account.address, "==========address=========")
+                console.log(Address.parse(wallet.account.address).toRawString(), "==========rawaddress=========")
+                console.log(Address.parse(wallet.account.address).toString(), "==========string=========")
                 await handleWalletConnection(wallet.account.address);
             } else if (!wallet && !isConnecting) {
                 await handleWalletDisconnection();
