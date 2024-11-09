@@ -77,12 +77,42 @@ function ClickerPage() {
         // eslint-disable-next-line react-hooks/rules-of-hooks
         useTelegramMock();
     }
+    
+
+    const registerUser = async (tgData: any) => {
+        try {
+            const response = await fetch('/api/user', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    telegramInitData: tgData,
+                    referrerTelegramId: null
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to save user');
+            }
+
+            const data = await response.json();
+            return true;
+        } catch (error) {
+            console.error('Error saving user:', error);
+            return false;
+        }
+    }
 
     const lp = useLaunchParams();
     useEffect(() => {
         if (lp) {
+            console.log(lp.initDataRaw);
             setUserTelegramInitData(lp.initDataRaw || '');
             setUserTelegramName(`${lp.initData?.user?.firstName} ${lp.initData?.user?.lastName}`.trim())
+
+            registerUser(lp.initDataRaw);
+            
             // setUserTelegramInitData("query_id=AAHDGPNVAgAAAMMY81UN13rr&user=%7B%22id%22%3A5736962243%2C%22first_name%22%3A%22KILROS%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22Kilros817%22%2C%22language_code%22%3A%22en%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1731068173&hash=dece650fe39cfb971267fefc2e7cc062e10f1d522a6df2d8060f4ff5c3a5bcfa")
             // setUserTelegramName("Kilros")
         }
