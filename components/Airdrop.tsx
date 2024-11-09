@@ -59,8 +59,7 @@ export default function Airdrop() {
             if (wallet && isConnecting) {
                 console.log(wallet, "==========wallet=========")
                 console.log(wallet.account.address, "==========address=========")
-                console.log(Address.parse(wallet.account.address).toRawString(), "==========rawaddress=========")
-                console.log(Address.parse(wallet.account.address).toString(), "==========string=========")
+                console.log(Address.parse(wallet.account.address).toString({bounceable: false}), "==========string=========")
                 await handleWalletConnection(wallet.account.address);
             } else if (!wallet && !isConnecting) {
                 await handleWalletDisconnection();
@@ -136,7 +135,7 @@ export default function Airdrop() {
 
     const copyToClipboard = () => {
         if (tonWalletAddress) {
-            const temp = Address.parse(tonWalletAddress).toString();
+            const temp = Address.parse(tonWalletAddress).toString({bounceable: false});
             navigator.clipboard.writeText(temp);
             setCopied(true);
             showToast("Address copied to clipboard!", "success");
