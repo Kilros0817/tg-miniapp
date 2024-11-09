@@ -27,7 +27,7 @@ export default function Loading({ setIsInitialized, setCurrentView }: LoadingPro
         pointsBalance: 0,
         unsynchronizedPoints: 0,
         multitapLevelIndex: 0,
-        pointsPerClick: 0,
+        pointsPerClick: 1,
         energy: 0,
         maxEnergy: calculateEnergyLimit(0),
         energyRefillsLeft: 0,

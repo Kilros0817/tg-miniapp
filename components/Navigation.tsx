@@ -33,14 +33,8 @@ export default function Navigation({
   currentView,
   setCurrentView,
 }: NavigationProps) {
-  console.log("Navigation props:", {
-    currentView,
-    setCurrentView,
-    isSetCurrentViewFunction: typeof setCurrentView === "function",
-  });
 
   const handleViewChange = (view: string) => {
-    console.log("Attempting to change view to:", view);
     if (typeof setCurrentView === "function") {
       try {
         setCurrentView(view);
