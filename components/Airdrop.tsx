@@ -126,11 +126,13 @@ export default function Airdrop() {
 
     const formatAddress = (address: string) => {
         const tempAddress = Address.parse(address).toString();
+
         return `${tempAddress.slice(0, 4)}...${tempAddress.slice(-4)}`;
     };
 
     const copyToClipboard = () => {
         if (tonWalletAddress) {
+            const temp = Address.parse(tonWalletAddress).toString();
             navigator.clipboard.writeText(tonWalletAddress);
             setCopied(true);
             showToast("Address copied to clipboard!", "success");
