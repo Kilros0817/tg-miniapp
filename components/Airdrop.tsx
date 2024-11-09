@@ -133,7 +133,7 @@ export default function Airdrop() {
     const copyToClipboard = () => {
         if (tonWalletAddress) {
             const temp = Address.parse(tonWalletAddress).toString();
-            navigator.clipboard.writeText(tonWalletAddress);
+            navigator.clipboard.writeText(temp);
             setCopied(true);
             showToast("Address copied to clipboard!", "success");
             setTimeout(() => setCopied(false), 2000);
